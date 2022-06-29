@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Shop_Information;
 use App\Models\User;
+use App\Models\category;
 class FrontendController extends Controller
 {
 
@@ -32,9 +33,8 @@ class FrontendController extends Controller
     }
     public function edit_shop_profile()
     {
+      $lists=category::where('auth_id', auth()->id())->get();
       $list=User::where('id', auth()->id())->get();
-      $shop_info=Shop_Information::where('id', auth()->id())->get();
-
 
         //dd($list);
          $shop=Shop_Information::where('user_id', auth()->id())->where('verified_at', 1)->first();
@@ -42,7 +42,7 @@ class FrontendController extends Controller
 
         if($shop){
 
-          return view('frontend.layout.edit_shop_profile_verified',compact('list','shop_info'));
+          return view('admin.category.category_form',compact('lists'));
           //$status="Verified";
         }else{
 

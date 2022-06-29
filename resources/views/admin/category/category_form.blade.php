@@ -1,8 +1,16 @@
-@extends('layouts.admin_master')
+@extends('layouts.shop_admin_master')
 @section('content')
 <body>
-  <div class="content">
-    <a href="{{route('view_subcat')}}" class="btn btn-primary m-2"><i class="fa fa-home me-2"></i>View Service List</a>
+  <div class="d-flex justify-content-between">
+    <a href="{{route('view_subcat')}}" class="btn btn-primary m-2"><i class="fa fa-home me-2"></i>View Category & Subcategory Combined List</a>
+    <a href="{{route('service_form')}}" class="btn btn-primary m-2"><i class="fa fa-home me-2"></i>Add Service</a>
+  </div>
+    @if ($message = Session::get('success1'))
+             <div class="alert alert-success alert-block">
+                 <button type="button" class="close" data-dismiss="alert">×</button>
+                     <strong>{{ $message }}</strong>
+             </div>
+             @endif
     <div class="container-fluid pt-4 px-4">
        <div class="row g-4">
           <div class="col-sm-12 col-xl-6">
@@ -11,7 +19,7 @@
                 <form action="{{route('category_post')}}" method="post" enctype="multipart/form-data">
                   @csrf
                     <div class="mb-3">
-                      <input type="hidden" name="auth_id" value="{{Auth::user()->id}}" class="form-control" id="auth_id">
+                      <!-- <input type="hidden" name="auth_id" value="{{Auth::user()->id}}" class="form-control" id="auth_id"> -->
                         <label for="cat_name" class="form-label">Category Name</label>
                         <input type="text" name="cat_name" class="form-control" id="cat_name">
                     </div>
@@ -22,7 +30,7 @@
                     <h6 class="mb-4">File Input</h6>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Choose a related picture</label>
-                                <input class="form-control bg-dark" name="file" type="file" id="formFile">
+                                <input class="form-control " name="file" type="file" id="formFile">
                             </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -40,7 +48,7 @@
                 <form action="{{route('subcategory_post')}}" method="post" enctype="multipart/form-data">
                   @csrf
                     <div class="row mb-3">
-                      <input type="hidden" name="auth_id" value="{{Auth::user()->id}}" class="form-control" id="auth_id1">
+                      <!-- <input type="hidden" name="auth_id" value="{{Auth::user()->id}}" class="form-control" id="auth_id1"> -->
                         <label for="cat_id" class="col-sm-2 col-form-label">Category Id</label>
                         <div class="col-sm-10">
                             <select class="form-control show-tick ms select2" type="input"
@@ -73,8 +81,8 @@
 
         </div>
      </div>
-   </div>
- </div>
+
+
  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>

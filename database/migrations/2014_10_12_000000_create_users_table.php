@@ -44,8 +44,6 @@ return new class extends Migration
             $table->string('customer_state')->nullable();
             $table->string('customer_zip')->nullable();
             $table->string('gender')->nullable();
-            $table->string('otp')->nullable();
-            $table->integer('verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

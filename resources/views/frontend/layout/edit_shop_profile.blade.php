@@ -9,7 +9,7 @@
                     <button type="button" class="btn btn-light border-bottom my-2" id="s_personal_info_section_btn">Shop
                         Information</button>
                     <button type="button" class="btn btn-light border-bottom my-2"
-                        id="s_verify_info_section_btn">Verify</button>
+                        id="s_verify_info_section_btn">Admin Panel</button>
                 </div>
             </div>
             <div class="col-lg-9 ">

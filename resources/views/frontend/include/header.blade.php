@@ -57,7 +57,7 @@
                                       </button>
                                       @endif
 
-                     
+
 
                      <span class=" position-relative">
                              <i class="fa-solid fa-cart-shopping fa-2xl"></i>
@@ -101,13 +101,13 @@
          <div class="offcanvas-body">
              <div class="d-flex justify-content-around">
                  <p class="fs-1 offcanvas-item">
-                     <a href="{{route('customer_login')}}">Become Our Customer
+                     <a href="{{route('customer_login')}}">Customer Login
                          <i class="fa-solid fa-right-long"></i>
                      </a>
 
                  </p>
                  <p class="fs-1 offcanvas-item">
-                     <a href="{{route('shop_login')}}"> Create a Shop Account
+                     <a href="{{route('shop_login')}}">Shop Login
                          <i class="fa-solid fa-right-long"></i>
                      </a>
                  </p>

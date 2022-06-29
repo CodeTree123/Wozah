@@ -73,14 +73,18 @@ Route::post('/send/otp', [App\Http\Controllers\DashboardController::class, 'send
 Route::post('/file/upload', [App\Http\Controllers\DashboardController::class, 'fileUpload'])->name('fileUpload');
 
 //admin dashboard start
-Route::get('admin/index',[App\Http\Controllers\admin\AdminController::class, 'index'])->name('admin_index');
+Route::get('admin/index',[App\Http\Controllers\admin\AdminController::class, 'index'])->name('admin_index')->middleware('checkrole');
 
 //category & Subcategory
-Route::get('add/category',[App\Http\Controllers\admin\AdminController::class, 'category_form'])->name('category_form');
+Route::get('add/category',[App\Http\Controllers\admin\AdminController::class, 'category_form'])->name('category_form')->middleware('checkrole');
 Route::post('post/category',[App\Http\Controllers\admin\AdminController::class, 'category_post'])->name('category_post');
 Route::post('post/subcategory',[App\Http\Controllers\admin\AdminController::class, 'subcategory_post'])->name('subcategory_post');
 Route::get('view/subcategory',[App\Http\Controllers\admin\AdminController::class, 'view_subcat'])->name('view_subcat');
 
+//add service
+Route::get('service/form',[App\Http\Controllers\admin\AdminController::class, 'service_form'])->name('service_form');
+Route::post('post/service',[App\Http\Controllers\admin\AdminController::class, 'post_service'])->name('post_service');
+Route::get('view/service',[App\Http\Controllers\admin\AdminController::class, 'view_service'])->name('view_service');
 //update section
 
 

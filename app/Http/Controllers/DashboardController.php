@@ -102,7 +102,7 @@ class DashboardController extends Controller
 
 
   //file upload
-  public function fileUpload(Request $req){
+  public function fileUpload(Request $request){
         // $req->validate([
         //   'b_ien' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
         //   'b_certificate' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
@@ -113,67 +113,74 @@ class DashboardController extends Controller
         //   'driver_license' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
         // ]);
       $Shop=Shop_Information::create([
-        'user_id'=>$req->user_id,
-        'b_ien'=>$req->b_ien,
-        'b_certificate'=>$req->b_certificate,
-        'b_registration'=>$req->b_registration,
-        'e_certificate'=>$req->e_certificate,
-        'nail_salon'=>$req->nail_salon,
-        'b_insurance'=>$req->b_insurance,
-        'b_workers'=>$req->b_workers,
-        'driver_license'=>$req->driver_license,
+        'user_id'=>$request->user_id,
+        'b_ien'=>$request->b_ien,
+        'b_certificate'=>$request->b_certificate,
+        'b_registration'=>$request->b_registration,
+        'e_certificate'=>$request->e_certificate,
+        'nail_salon'=>$request->nail_salon,
+        'b_insurance'=>$request->b_insurance,
+        'b_workers'=>$request->b_workers,
+        'driver_license'=>$request->driver_license,
         'verified_at'=>0,
       ]);
-
-        $fileModel = new Shop_Information;
-        if($req->file()) {
-            $fileName = time().'_'.$req->file->getClientOriginalName();
-            $filePath = $req->file('b_ien')->storeAs('uploads', $fileName, 'public');
-            $fileModel->name = time().'_'.$req->file->getClientOriginalName();
-            $fileModel->file_path = '/storage/' . $filePath;
-            $fileModel->save();
-            return back();
+      if($request->file('b_ien')){
+            $file= $request->file('b_ien');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('uploads/shop_pdf/'), $filename);
+            $Shop['b_ien']= $filename;
+            $Shop->save();
         }
-          if($req->file()) {
-              $fileName = time().'_'.$req->file->getClientOriginalName();
-              $filePath = $req->file('b_certificate')->storeAs('uploads', $fileName, 'public');
-              $fileModel->name = time().'_'.$req->file->getClientOriginalName();
-              $fileModel->file_path = '/storage/' . $filePath;
-              $fileModel->save();
-              return back();
+        if($request->file('b_certificate')){
+              $file= $request->file('b_certificate');
+              $filename= date('YmdHi').$file->getClientOriginalName();
+              $file-> move(public_path('uploads/shop_pdf/'), $filename);
+              $Shop['b_certificate']= $filename;
+              $Shop->save();
           }
-            if($req->file()) {
-                $fileName = time().'_'.$req->file->getClientOriginalName();
-                $filePath = $req->file('e_certificate')->storeAs('uploads', $fileName, 'public');
-                $fileModel->name = time().'_'.$req->file->getClientOriginalName();
-                $fileModel->file_path = '/storage/' . $filePath;
-                $fileModel->save();
-                return back();
+          if($request->file('b_registration')){
+                $file= $request->file('b_registration');
+                $filename= date('YmdHi').$file->getClientOriginalName();
+                $file-> move(public_path('uploads/shop_pdf/'), $filename);
+                $Shop['b_registration']= $filename;
+                $Shop->save();
             }
-              if($req->file()) {
-                  $fileName = time().'_'.$req->file->getClientOriginalName();
-                  $filePath = $req->file('b_insurance')->storeAs('uploads', $fileName, 'public');
-                  $fileModel->name = time().'_'.$req->file->getClientOriginalName();
-                  $fileModel->file_path = '/storage/' . $filePath;
-                  $fileModel->save();
-                  return back();
+            if($request->file('e_certificate')){
+                  $file= $request->file('e_certificate');
+                  $filename= date('YmdHi').$file->getClientOriginalName();
+                  $file-> move(public_path('uploads/shop_pdf/'), $filename);
+                  $Shop['e_certificate']= $filename;
+                  $Shop->save();
               }
-                if($req->file()) {
-                    $fileName = time().'_'.$req->file->getClientOriginalName();
-                    $filePath = $req->file('b_workers')->storeAs('uploads', $fileName, 'public');
-                    $fileModel->name = time().'_'.$req->file->getClientOriginalName();
-                    $fileModel->file_path = '/storage/' . $filePath;
-                    $fileModel->save();
-                    return back();
+              if($request->file('nail_salon')){
+                    $file= $request->file('nail_salon');
+                    $filename= date('YmdHi').$file->getClientOriginalName();
+                    $file-> move(public_path('uploads/shop_pdf/'), $filename);
+                    $Shop['nail_salon']= $filename;
+                    $Shop->save();
                 }
-                  if($req->file()) {
-                      $fileName = time().'_'.$req->file->getClientOriginalName();
-                      $filePath = $req->file('driver_license')->storeAs('uploads', $fileName, 'public');
-                      $fileModel->name = time().'_'.$req->file->getClientOriginalName();
-                      $fileModel->file_path = '/storage/' . $filePath;
-                      $fileModel->save();
-                      return back();
+                if($request->file('b_insurance')){
+                      $file= $request->file('b_insurance');
+                      $filename= date('YmdHi').$file->getClientOriginalName();
+                      $file-> move(public_path('uploads/shop_pdf/'), $filename);
+                      $Shop['b_insurance']= $filename;
+                      $Shop->save();
                   }
+                  if($request->file('b_workers')){
+                        $file= $request->file('b_workers');
+                        $filename= date('YmdHi').$file->getClientOriginalName();
+                        $file-> move(public_path('uploads/shop_pdf/'), $filename);
+                        $Shop['b_workers']= $filename;
+                        $Shop->save();
+                    }
+                    if($request->file('driver_license')){
+                          $file= $request->file('driver_license');
+                          $filename= date('YmdHi').$file->getClientOriginalName();
+                          $file-> move(public_path('uploads/shop_pdf/'), $filename);
+                          $Shop['driver_license']= $filename;
+                          $Shop->save();
+                      }
+
                   //dd($Shop);
             return back();
    }

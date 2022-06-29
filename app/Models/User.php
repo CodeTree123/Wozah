@@ -46,8 +46,6 @@ class User extends Authenticatable implements MustVerifyEmail
       'customer_state',
       'customer_zip',
       'gender',
-      'otp',
-      'verified_at',
     ];
     /**
      * The attributes that should be hidden for serialization.

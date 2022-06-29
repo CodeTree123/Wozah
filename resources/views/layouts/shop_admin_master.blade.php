@@ -14,14 +14,12 @@
 <body>
 @include('admin.include.navber.navber')
 @include('admin.include.preloader.preloader')
-@include('admin.include.lts.lts')
-
         <main class="py-4">
             @yield('content')
         </main>
     </div>
-   
     <!-- JavaScript Bundle with Popper -->
+@include('admin.include.footer.footer')
 @include('admin.include.js.js')
 </body>
 </html>
