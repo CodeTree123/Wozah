@@ -19,32 +19,32 @@
                         >Get Started</button>
                     </div>
 
-               
+
                 </div>
             </div>
         </div>
- 
+
         <section class="  " data-aos="zoom-in-up">
             <div class="container">
                 <h2 class="mb-3"> Popular Salon & Spa Centers </h2>
                 <div class="row mt-5 align-items-center shadow">
-                    <div class="col-lg-4 col-md-4 col-sm-12 col-12 pb-5"> 
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-12 pb-5">
                         <img class="service align-center x  " src="{{ asset('img/service.jpg') }}" alt="">
                     </div>
-
                     <div class="col-lg-8 col-md-8 col-sm-12 col-12 ">
-                    <div class="row align-middle shop_list"> 
+                    <div class="row align-middle shop_list">
+                      @foreach($shop as $list)
                             <div class="col-lg-3 col-md-3 col-sm-3 col-3 pb-3 ">
-                            <a href="{{route('service_list')}}"> 
-                                <img class="sub-service img-fluid border border-dark" src="{{ asset('img/service.jpg') }}" alt="">
-                                <span  class="shop-name">Vista Salon & Spa</span> 
+                            <a href="{{route('service_list')}}">
+                                <img class="sub-service img-fluid border border-dark" src="{{ asset('uploads/categories') }}/{{$list->relationBetweenCategory->file}}" alt="">
+                                <span  class="shop-name">{{$list->relationBetweenUser->shop_name}}</span>
                                 </a>
-
-                                <a href="{{route('service_list')}}" class=""> 
+                                <a href="{{route('service_list')}}" class="">
                                     <img class="sub-service img-fluid border border-dark" src="{{ asset('img/service.jpg') }}" alt="">
-                                    <span  class="shop-name">Second Shop</span> 
+                                    <span  class="shop-name">sfsdd</span>
                                 </a>
                             </div>
+                            @endforeach
 
                             <div class="col-lg-3 col-md-3 col-sm-3 col-3 pb-3 ">
                                 <a href="#">
@@ -128,10 +128,10 @@
                                 </a>
                                 <p>ok</p>
                             </div>
+
                         </div>
                 </div>
             </div>
-
         </section>
 
 
@@ -160,5 +160,3 @@
             </div>
         </section>
 @endsection
-
- 

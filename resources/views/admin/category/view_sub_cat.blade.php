@@ -1,5 +1,6 @@
 @extends('layouts.shop_admin_master')
 @section('content')
+        <div class="content">
 <a href="{{route('category_form')}}" class="btn btn-primary m-2"><i class="fa fa-home me-2"></i>Home</a>
   <h4>Subcategory Details</h4>
                  <div class="col-12">
@@ -37,5 +38,5 @@
                             </div>
                         </div>
                     </div>
-
+</div>
 @endsection

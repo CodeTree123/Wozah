@@ -19,6 +19,11 @@ class Service extends Model
       'add_info4',
       'add_info5',
     ];
+    function relationBetweenUser()
+    {
+
+    return $this->hasOne('App\Models\User','id','auth_id');
+    }
     function relationBetweenCategory()
     {
 

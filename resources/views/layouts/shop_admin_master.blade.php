@@ -13,6 +13,7 @@
 </head>
 <body>
 @include('admin.include.navber.navber')
+@include('admin.include.lts.shop_lts')
 @include('admin.include.preloader.preloader')
         <main class="py-4">
             @yield('content')

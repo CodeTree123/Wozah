@@ -1,5 +1,6 @@
 @extends('layouts.shop_admin_master')
 @section('content')
+        <div class="content">
 <a href="{{route('category_form')}}" class="btn btn-primary m-2"><i class="fa fa-home me-2"></i>Home</a>
   <h4>Service Details</h4>
                  <div class="col-12">
@@ -10,6 +11,9 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
+                                            <th scope="col">Shop Name</th>
+                                            <th scope="col">Shop Address</th>
+                                            <th scope="col">Shop Contact</th>
                                             <th scope="col">Category Name</th>
                                             <th scope="col">Category Type</th>
                                             <th scope="col">Subacategory Name</th>
@@ -28,6 +32,9 @@
                                       @foreach($lists as $list)
                                         <tr>
                                             <th scope="row">{{$list->id}}</th>
+                                            <td>{{$list->relationBetweenUser->shop_name}}</td>
+                                            <td>{{$list->relationBetweenUser->shop_address}}</td>
+                                            <td>{{$list->relationBetweenUser->phone}}</td>
                                             <td>{{$list->relationBetweenCategory->cat_name}}</td>
                                             <td>{{$list->relationBetweenCategory->cat_type}}</td>
                                             <td>{{$list->relationBetweenSubCategory->subcat_name}}</td>
@@ -47,5 +54,5 @@
                             </div>
                         </div>
                     </div>
-
+</div>
 @endsection

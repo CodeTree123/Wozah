@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Shop_Information;
 use App\Models\User;
 use App\Models\category;
+use App\Models\SubCategory;
+use App\Models\Service;
 class FrontendController extends Controller
 {
 
@@ -16,7 +18,10 @@ class FrontendController extends Controller
     }
      public function content()
     {
-        return view('frontend.layout.content');
+      // $services1=category::where('cat_name','Salon Service')->get();
+      // $services2=category::where('cat_name','Skin Care Service')->get();
+        $shop=Service::all();
+        return view('frontend.layout.content',compact('shop'));
     }
      public function customer_registration()
     {

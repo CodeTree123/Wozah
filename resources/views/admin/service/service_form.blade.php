@@ -1,6 +1,7 @@
 @extends('layouts.shop_admin_master')
 @section('content')
 <body>
+          <div class="content">
   <div class="d-flex justify-content-between">
     <a href="{{route('category_form')}}" class="btn btn-primary m-2"><i class="fa fa-home me-2"></i>Home</a>
     <a href="{{route('view_service')}}" class="btn btn-primary m-2"><i class="fa fa-home me-2"></i>Service List</a>
@@ -57,6 +58,8 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
                     </div>
+                  </div>
+
                     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
